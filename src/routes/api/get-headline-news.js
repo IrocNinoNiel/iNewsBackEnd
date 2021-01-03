@@ -6,10 +6,10 @@ module.exports = (router,newsapi) => {
             country: 'us',
             pageSize:20
           }).then(response => {
-            response.articles.forEach(element => {
-                console.log(element.source.name);
-            });
-            res.send(response.articles);
+            
+            const filtered = response.articles.filter(item => item.content)
+                                            .filter(item => item.urlToImage);        
+            res.send(filtered);
           });
     })
 }
