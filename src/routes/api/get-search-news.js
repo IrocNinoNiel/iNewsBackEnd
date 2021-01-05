@@ -5,7 +5,7 @@ module.exports = (router,newsapi) => {
             q: `${search}`,
             language: 'en',
             sortBy: 'relevancy',
-            page: 2
+            pageSize:20
           }).then(response => {
             res.send(response.articles);
           });

@@ -4,6 +4,7 @@ module.exports = (router,newsapi) => {
         newsapi.v2.topHeadlines({
             category: `${type}`,
             language: 'en',
+            pageSize:20
           }).then(response => {
             res.send(response.articles);
           });
